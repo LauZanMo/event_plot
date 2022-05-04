@@ -17,15 +17,31 @@ endif()
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
+find_package(catkin COMPONENTS rosbag dvs_msgs)
+find_package(Boost REQUIRED COMPONENTS system thread date_time)
+
 # append sources here
-list(APPEND SOURCES
+list(APPEND sources
     src/main.cpp
 )
 
+# append library here
+list(APPEND thirdparty_libraries
+    ${Boost_LIBRARIES}
+    ${catkin_LIBRARIES}
+)
+
+# append include directories here
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
+    ${Boost_INCLUDE_DIRS}
+    ${catkin_INCLUDE_DIRS}
 )
 
 add_executable(${PROJECT_NAME}
-    ${SOURCES}
+    ${sources}
+)
+
+target_link_libraries(${PROJECT_NAME}
+    ${thirdparty_libraries}
 )
