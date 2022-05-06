@@ -19,16 +19,21 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
 find_package(catkin COMPONENTS rosbag dvs_msgs)
 find_package(Boost REQUIRED COMPONENTS system thread date_time)
+find_package(PCL REQUIRED)
+find_package(Pangolin REQUIRED)
 
 # append sources here
 list(APPEND sources
     src/main.cpp
+    src/event_io.cpp
 )
 
 # append library here
 list(APPEND thirdparty_libraries
     ${Boost_LIBRARIES}
     ${catkin_LIBRARIES}
+    ${PCL_LIBRARIES}
+    ${Pangolin_LIBRARIES}
 )
 
 # append include directories here
@@ -36,6 +41,8 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/include
     ${Boost_INCLUDE_DIRS}
     ${catkin_INCLUDE_DIRS}
+    ${PCL_INCLUDE_DIRS}
+    ${Pangolin_INCLUDE_DIRS}
 )
 
 add_executable(${PROJECT_NAME}
@@ -45,3 +52,4 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
     ${thirdparty_libraries}
 )
+
