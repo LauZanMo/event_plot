@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+
 #include <dvs_msgs/Event.h>
 #include <pcl/pcl_macros.h>
 #include <pcl/point_types.h>

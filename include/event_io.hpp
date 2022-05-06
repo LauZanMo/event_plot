@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 
 #include <dvs_msgs/Event.h>
@@ -16,8 +18,8 @@ public:
     std::vector<dvs_msgs::Event> event_stream_;
 
 private:
+    const int output_width_ = 15;
+
     uint16_t img_width_;
     uint16_t img_height_;
-
-    const int output_width_ = 15;
 };

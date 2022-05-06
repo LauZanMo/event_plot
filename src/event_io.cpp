@@ -38,6 +38,7 @@ EventIO::~EventIO() {}
 // 输出事件的文件
 bool EventIO::Write(std::string output_name, double time_length, string type) {
     if (type == "pcd") {
+        // pcl点云格式(极性被转换成了颜色)
         pcl::PointCloud<DVS::EventPoint> cloud;
         cloud.is_dense = false;
 
@@ -53,6 +54,7 @@ bool EventIO::Write(std::string output_name, double time_length, string type) {
         pcl::io::savePCDFileBinary(output_name + ".pcd", cloud);
 
     } else if (type == "txt") {
+        // txt格式
         ofstream output(output_name + ".txt", ios::trunc);
         output << fixed << setprecision(10);
 
