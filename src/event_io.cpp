@@ -19,7 +19,7 @@ EventIO::EventIO(string bag_name, vector<string> topics, uint16_t img_width, uin
     : img_width_(img_width), img_height_(img_height) {
     // 读取rosbag并保存至容器
     rosbag::Bag bag;
-    bag.open(bag_name);
+    bag.open(bag_name + ".bag");
     rosbag::View view(bag, rosbag::TopicQuery(topics));
 
     for (auto message : view) {

@@ -7,7 +7,7 @@ using namespace std;
 
 // rosbag信息
 string         bag_path = "/home/ubuntu/Dataset/dvs/";
-string         bag_name = "dvs_circle.bag";
+string         bag_name = "dvs_circle";
 vector<string> topics   = {"/dvs/events"};
 
 string output_path = "/home/ubuntu/Code/event_plot/output/";

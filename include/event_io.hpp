@@ -10,7 +10,6 @@ public:
             uint16_t                 img_height);
     ~EventIO();
 
-
     bool Write(std::string output_name, double time_length, std::string type = "pcd");
     bool CheckTimeSequence();
 
