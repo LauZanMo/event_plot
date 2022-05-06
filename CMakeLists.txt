@@ -26,6 +26,7 @@ find_package(Pangolin REQUIRED)
 list(APPEND sources
     src/main.cpp
     src/event_io.cpp
+    src/event_viewer.cpp
 )
 
 # append library here
