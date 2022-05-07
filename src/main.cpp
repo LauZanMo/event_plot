@@ -21,12 +21,12 @@ uint16_t img_height = 480;
 
 int main(int argc, char *argv[]) {
     EventIOPtr e_io(new EventIO(bag_path + bag_name, topics, img_width, img_height));
-    e_io->CheckTimeSequence();
-    e_io->Write(output_path + output_name, 5, "pcd");
+    // e_io->CheckTimeSequence();
+    // e_io->Write(output_path + output_name, 5, "pcd");
 
-    // EventViewer   e_viewer(e_io);
-    // boost::thread viewer_thread = boost::thread(&EventViewer::VizLoop, &e_viewer);
-    // viewer_thread.join();
+    EventViewer   e_viewer(e_io);
+    boost::thread viewer_thread = boost::thread(&EventViewer::VizLoop, &e_viewer);
+    viewer_thread.join();
 
     return 0;
 }

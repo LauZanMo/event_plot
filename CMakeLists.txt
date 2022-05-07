@@ -21,6 +21,7 @@ find_package(catkin COMPONENTS rosbag dvs_msgs)
 find_package(Boost REQUIRED COMPONENTS system thread date_time)
 find_package(PCL REQUIRED)
 find_package(Pangolin REQUIRED)
+find_package(OpenCV 4 REQUIRED)
 
 # append sources here
 list(APPEND sources
@@ -35,6 +36,7 @@ list(APPEND thirdparty_libraries
     ${catkin_LIBRARIES}
     ${PCL_LIBRARIES}
     ${Pangolin_LIBRARIES}
+    ${OpenCV_LIBRARIES}
 )
 
 # append include directories here
@@ -44,6 +46,7 @@ include_directories(
     ${catkin_INCLUDE_DIRS}
     ${PCL_INCLUDE_DIRS}
     ${Pangolin_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS}
 )
 
 add_executable(${PROJECT_NAME}

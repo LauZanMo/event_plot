@@ -16,10 +16,9 @@ public:
     bool CheckTimeSequence();
 
     std::vector<dvs_msgs::Event> event_stream_;
+    uint16_t                     img_width_;
+    uint16_t                     img_height_;
 
 private:
     const int output_width_ = 15;
-
-    uint16_t img_width_;
-    uint16_t img_height_;
 };
